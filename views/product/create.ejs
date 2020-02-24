@@ -51,7 +51,7 @@
                 price: parseInt($('#productPrice').val()),
                 image: $('#productImage').val(),
                 category: $('#productCategory').val(),
-                createdAt: new Date()
+                createdAt: new Date().getTime()
             };
             console.log('[新增產品]', product);
             // TODO: 呼叫新增商品API
