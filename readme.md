@@ -6,6 +6,18 @@ $ npm install
 $ nodemon
 ```
 
+### 如果過去未曾安裝過nodemon
+
+```
+$ npm i -g nodemon
+```
+
+MacOS需要輸入
+
+```
+$ sudo npm i -g nodemon --unsafe-perm
+```
+
 ### 產生一個Express專案
 
 ```
