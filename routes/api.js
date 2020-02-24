@@ -4,7 +4,7 @@ const axios = require('axios');
 const router = express.Router();
 
 // 取得伺服器正確與錯誤訊息範例
-router.post('/success-or-error', async function (req, res, next) {
+router.post('/success-or-error', function (req, res, next) {
     // 取得傳遞進來的物件.isSuccess
     const isSuccess = req.body.isSuccess;
     console.log('[isSuccess]', isSuccess);
