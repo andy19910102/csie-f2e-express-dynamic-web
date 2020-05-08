@@ -3,6 +3,8 @@ const moment = require('moment');
 const axios = require('axios');
 const router = express.Router();
 
+// TODO: 開出一個API回應前端傳來的內容
+
 // 取得伺服器正確與錯誤訊息範例
 router.post('/success-or-error', function (req, res, next) {
     // 取得傳遞進來的物件.isSuccess

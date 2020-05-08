@@ -91,7 +91,7 @@ $('#getFormatTimeForm').submit(function (event) {
             // 如果發生錯誤
             console.log(err);
             renderRes(form, err, false)
-        })
+        });
 });
 
 // TODO: 使伺服器回傳前端寫入的字串
