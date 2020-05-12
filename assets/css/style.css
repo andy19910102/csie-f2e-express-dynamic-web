@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+
 body {
     margin: 0px;
+    font-family: 'Rubik', 'Microsoft JhengHei', sans-serif;
 }
 
 .header {
-    padding: 150px 0px;
+    padding: 100px 0px;
     background-size: cover;
     background-attachment: fixed;
     color: white;
@@ -17,7 +20,7 @@ body {
     height: 100%;
     position: absolute;
     background: black;
-    opacity: .6;
+    opacity: .3;
     left: 0px;
     top: 0px;
     z-index: 1;
@@ -26,11 +29,18 @@ body {
 
 .header .container {
     position: relative;
+    text-shadow: 0px 5px 0px rgba(0,0,0,.3);
     z-index: 3;
+    transition: all .5s ease;
+    bottom: 0px;
+}
+
+.header:hover .container {
+    bottom: 10px;
 }
 
 .header:hover:after {
-    opacity: .3;
+    opacity: .6;
 }
 
 .product-header {
