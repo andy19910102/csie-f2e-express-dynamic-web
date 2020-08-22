@@ -55,6 +55,8 @@ router.post('/time/format', function (req, res, next) {
 
 // 登入
 router.post('/login', function (req, res, next) {
+    console.log('[準備登入]');
+    console.log('[前端送來的資料]', req.body);
 
 });
 
@@ -70,16 +72,23 @@ router.get('/product/list', function (req, res, next) {
 
 // 新增商品
 router.post('/product/create', function (req, res, next) {
+    console.log('[準備新增商品]');
+    console.log('[前端送來的資料]', req.body);
 
 });
 
 // 更新商品
 router.put('/product/:pid', function (req, res, next) {
+    console.log('[準備更新商品]');
+    console.log('[前端送來的資料]', req.body);
+    console.log('[pid]', req.params.pid);
 
 });
 
 // 刪除商品
 router.delete('/product/:pid', function (req, res, next) {
+    console.log('[準備刪除商品]');
+    console.log('[pid]', req.params.pid);
 
 });
 
