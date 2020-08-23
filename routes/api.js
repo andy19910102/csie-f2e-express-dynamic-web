@@ -57,11 +57,21 @@ router.post('/time/format', function (req, res, next) {
 router.post('/login', function (req, res, next) {
     console.log('[準備登入]');
     console.log('[前端送來的資料]', req.body);
+    // Create session cookie
+    // https://firebase.google.com/docs/auth/admin/manage-cookies#create_session_cookie
+    // TODO: 取得前端傳來的使用者 idToken
+    // const idToken
+    // 有效期間
+    const expiresIn = 60 * 60 * 24 * 5 * 1000;
+    // 建立 Session Cookie
+    // admin.auth().createSessionCookie(idToken, {expiresIn})
 
 });
 
 // 登出
 router.post('/logout', function (req, res, next) {
+    // Sign Out
+    // https://firebase.google.com/docs/auth/admin/manage-cookies#sign_out
 
 });
 
@@ -74,6 +84,8 @@ router.get('/product/list', function (req, res, next) {
 router.post('/product/create', function (req, res, next) {
     console.log('[準備新增商品]');
     console.log('[前端送來的資料]', req.body);
+    // Add a document
+    // https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
 
 });
 
@@ -82,6 +94,8 @@ router.put('/product/:pid', function (req, res, next) {
     console.log('[準備更新商品]');
     console.log('[前端送來的資料]', req.body);
     console.log('[pid]', req.params.pid);
+    // Get a document
+    // https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
 
 });
 
@@ -89,6 +103,7 @@ router.put('/product/:pid', function (req, res, next) {
 router.delete('/product/:pid', function (req, res, next) {
     console.log('[準備刪除商品]');
     console.log('[pid]', req.params.pid);
+
 
 });
 
