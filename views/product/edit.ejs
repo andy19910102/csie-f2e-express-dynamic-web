@@ -57,12 +57,18 @@
             }
             console.log('[更新產品]', product);
             // TODO: 呼叫更新商品API
+            // put {} => /api/product/${pid}
+            // https://github.com/axios/axios
+            // axios.put(`/api/product/${pid}`, product)
+
         });
 
         // 刪除商品按鈕按下時
         $('#deleteProductBtn').click(function (event) {
             console.log('[刪除商品]');
             // TODO: 呼叫刪除商品API
+            // delete => /api/product/${pid}
+
         });
     </script>
 </body>
