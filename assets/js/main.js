@@ -1,5 +1,3 @@
-const { auth } = require("firebase-admin");
-
 function finalizeFrontEndLogin(response) {
     // TODO: 處理登入成功後的流程
     // 取得idToken
