@@ -27,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 // 設定前端資源路由 /node_modules/ => node_modules
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+// 設定Cookie名稱
+app.locals.cookieName = 'example-cookie';
 
 app.use('/', indexRouter);
 app.use('/product', productRouter);

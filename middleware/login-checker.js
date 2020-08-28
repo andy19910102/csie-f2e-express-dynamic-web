@@ -11,6 +11,13 @@ function loginChecker(router) {
         // 取得使用者的sessionCookie,若沒有則設定為空字串
         const cookieName = '';
         const sessionCookie = req.cookies[cookieName] || '';
+        console.log('[驗證sessionCookie]', sessionCookie);
+        // 預設驗證狀態
+        const auth = {
+            isLogin: false,
+            isAdmin: false,
+            user: {}
+        }
         // admin.auth().verifySessionCookie(sessionCookie, true)
 
     });

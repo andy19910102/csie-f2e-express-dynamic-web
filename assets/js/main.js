@@ -57,9 +57,16 @@ $('#logoutBtn').click(function () {
     //     .signOut()
     //     .then(function () {
     //         console.log('[登出成功]');
-
+    //         axios.post('/api/logout', {})
+    //             .then(function () {
+    //                 window.location = '/'
+    //             })
+    //             .catch(function () {
+    //                 window.location = '/'
+    //             });
     //     })
     //     .catch(function (error) {
     //         console.log('[登出失敗]', error);
+    //         window.location = '/'
     //     });
 });
