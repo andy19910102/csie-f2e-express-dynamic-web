@@ -10,9 +10,4 @@ router.get('/', function (req, res, next) {
   res.render('index');
 });
 
-// API示範頁面
-router.get('/api-demo', function (req, res, next) {
-  res.render('api-demo');
-});
-
 module.exports = router;
