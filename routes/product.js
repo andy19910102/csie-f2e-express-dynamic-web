@@ -15,6 +15,10 @@ router.get('/create', function (req, res, next) {
 
 // 編輯產品路由
 router.get('/edit/:pid', function (req, res, next) {
+    // TODO: 取得動態路由參數:pid
+
+    // TODO: 透過pid至firebase取得指定文件的資料
+
     // 渲染 product/edit.ejs
     res.render('product/edit');
 });

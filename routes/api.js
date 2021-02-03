@@ -23,15 +23,22 @@ router.post('/login', function (req, res, next) {
 router.post('/logout', function (req, res, next) {
     // Sign Out
     // https://firebase.google.com/docs/auth/admin/manage-cookies#sign_out
-    const cookieName = req.app.locals.cookieName;
-    const sessionCookie = req.cookies[cookieName] || '';
-    // admin.auth().verifySessionCookie(sessionCookie)
-    //     .then(user => {
-
-    //     })
-    //     .catch(err => {
-    //         res.status(200).json({ msg: 'Logout' })
-    //     });
+    const cookieName = "";
+    // 從cookies中取得指定cookieName的值
+    const sessionCookie = req.cookies[cookieName] || "";
+    // 清除cookie
+    res.clearCookie(cookieName);
+    admin.auth().verifySessionCookie(sessionCookie)
+        .then(user => {
+            // 與Firebase Auth通知此人的登入狀態與sessionCookie已失效
+            admin.auth().revokeRefreshTokens(user.sub);
+            // 回應前端成功
+            res.status(200).json({ msg: 'Logout' })
+        })
+        .catch(err => {
+            // 回應前端成功
+            res.status(200).json({ msg: 'Logout' })
+        });
 });
 
 // 新增商品
