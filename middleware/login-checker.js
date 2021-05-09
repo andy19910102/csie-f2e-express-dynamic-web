@@ -7,11 +7,11 @@ function loginChecker(router) {
     // https://firebase.google.com/docs/auth/admin/manage-cookies#verify_session_cookie_and_check_permissions
     router.use(function (req, res, next) {
         console.log("[進入登入檢查站]");
-        // TODO: 設計登入驗證關卡...
+        // 設計登入驗證關卡...
         // 取得使用者的sessionCookie,若沒有則設定為空字串
-        const cookieName = "";
+        const cookieName = "ntu-cookie";
         const sessionCookie = req.cookies[cookieName] || "";
-        console.log("[驗證sessionCookie]", sessionCookie);
+        console.log("[sessionCookie]", sessionCookie);
         // 預設驗證狀態
         const auth = {
             isLogin: false,
@@ -25,13 +25,15 @@ function loginChecker(router) {
                 auth.isLogin = true;
                 // 將透過sessionCookie喚回的使用者資料存到auth.user內
                 auth.user = user;
-                // TODO: 將auth資料傳遞給模板使用 && 放行
-
+                // 將auth資料傳遞給模板使用 && 放行
+                res.locals.auth = auth;
+                // next()
             })
             .catch(err => {
                 console.log("驗證失敗", err);
                 // TODO: 將auth資料傳遞給模板使用 && 放行
-
+                res.locals.auth = auth;
+                // nuxt()
             });
     });
 }

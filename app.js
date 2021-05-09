@@ -5,8 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 // 取得路由資源
+// 引用./routes/index.js作為indexRouter
 const indexRouter = require('./routes/index');
+// 引用./routes/product.js作為productRouter
 const productRouter = require('./routes/product');
+// 引用./routes/api.js作為apiRouter
 const apiRouter = require('./routes/api');
 
 // 設定應用程式
@@ -28,8 +31,11 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 // 設定前端資源路由 /node_modules/ => node_modules
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
+// 指派indexRouter負責處理 / 路由的邏輯
 app.use('/', indexRouter);
+// 指派productRouter負責處理 /product 路由的邏輯
 app.use('/product', productRouter);
+// 指派apiRouter負責處理 /api 路由的邏輯
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler

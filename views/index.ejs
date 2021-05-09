@@ -8,25 +8,40 @@
 <body>
   <% include shared/navbar %>
 
-  <header id="indexHeader" class="jumbotron header">
-    <div class="container">
-      <h1>Home Page</h1>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
-  </header>
-  <section class="py-3">
-    <div class="container">
-      <h1>商品列表</h1>
-      <div class="row">
-        <% productList.forEach(product => { %>
-        <div class="col-md-4">
-
-        </div>
-        <% }) %>
+    <header id="indexHeader" class="jumbotron header">
+      <div class="container">
+        <h1>Home Page</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
       </div>
-    </div>
-  </section>
-  <% include shared/scripts %>
+    </header>
+    <section class="py-3">
+      <div class="container">
+        <h1>商品列表</h1>
+        <div class="row">
+          <!-- forEach迴圈開頭 -->
+          <% productList.forEach(product=> { %>
+            <div class="col-md-4">
+              <div class="card">
+                <img src="<%= product.image %>" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= product.name %>
+                  </h5>
+                  <p>
+                    <%= product.category %>
+                  </p>
+                  <p>$ <%= product.price %> NTD</p>
+                  <a href="/product/show/<%= product.id %>" class="btn btn-primary">Detail</a>
+                  <a href="/product/edit/<%= product.id %>" class="btn btn-warning">Edit</a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+              <!-- forEach迴圈結尾 -->
+        </div>
+      </div>
+    </section>
+    <% include shared/scripts %>
 </body>
 
 </html>

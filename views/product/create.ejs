@@ -7,68 +7,60 @@
 
 <body>
     <% include ../shared/navbar %>
-    <header id="createHeader" class="jumbotron header">
-        <div class="container">
-            <h1>建立商品</h1>
-        </div>
-    </header>
-    <section class="py-3">
-        <form id="createProductForm" class="container">
-            <div class="form-group">
-                <label for="productName">商品名稱</label>
-                <input type="text" id="productName" class="form-control" required>
+        <header id="createHeader" class="jumbotron header">
+            <div class="container">
+                <h1>建立商品</h1>
             </div>
-            <div class="form-group">
-                <label for="productPrice">商品價格</label>
-                <input type="number" id="productPrice" class="form-control" min="1" max="20000" required>
-            </div>
-            <div class="form-group">
-                <label for="productImage">商品圖片</label>
-                <input type="text" id="productImage" class="form-control" value="https://picsum.photos/id/1070/1200/600"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="productCategory">商品分類</label>
-                <select id="productCategory" class="form-control">
-                    <option value="食品">食品</option>
-                    <option value="生活用品">生活用品</option>
-                    <option value="文具">文具</option>
-                    <option value="清潔用品">清潔用品</option>
-                    <option value="其他">其他</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 新增商品</button>
-            </div>
-        </form>
-    </section>
-    <% include ../shared/scripts %>
-    <script>
-        $('#createProductForm').submit(function (event) {
-            event.preventDefault();
-            const product = {
-                name: $('#productName').val(),
-                price: parseInt($('#productPrice').val()),
-                image: $('#productImage').val(),
-                category: $('#productCategory').val(),
-                createdAt: new Date().getTime()
-            };
-            console.log('[新增產品]', product);
-            // TODO: 透過Axios使用新增商品API
-            // https://github.com/axios/axios
-            // post {} => /api/product/create
-            /*
-            axios.post('/api/product/create', product)
-                .then(res => {
+        </header>
+        <section class="py-3">
+            <form id="createProductForm" class="container">
+                <div class="form-group">
+                    <label for="productName">商品名稱</label>
+                    <input type="text" id="productName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">商品價格</label>
+                    <input type="number" id="productPrice" class="form-control" min="1" max="20000" required>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">商品圖片</label>
+                    <input type="text" id="productImage" class="form-control"
+                        value="https://picsum.photos/id/1070/1200/600" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">商品分類</label>
+                    <select id="productCategory" class="form-control">
 
-                })
-                .catch(err => {
-                    alert('新增失敗');
-                    console.log(err)
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 新增商品</button>
+                </div>
+            </form>
+        </section>
+        <% include ../shared/scripts %>
+            <script>
+                const $select = $("#productCategory");
+                // TODO: 取得商品分類清單
+                // PATH: "/api/category-list"
+
+                $('#createProductForm').submit(function (event) {
+                    event.preventDefault();
+                    const product = {
+                        name: $('#productName').val(),
+                        price: parseInt($('#productPrice').val()),
+                        image: $('#productImage').val(),
+                        category: $('#productCategory').val(),
+                        createdAt: new Date().getTime()
+                    };
+                    console.log('[新增產品]', product);
+                    // TODO: 創建商品API
+                    // PATH: "/api/product/create",
+                    // MATHOD: "POST",
+                    // DATA: product 新產品資料(物件)
+
                 });
-            */
-        });
-    </script>
+            </script>
 </body>
 
 </html>
